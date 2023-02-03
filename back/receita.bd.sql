@@ -8,20 +8,20 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema receitaWeb
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema receitaWeb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `receitaWeb` DEFAULT CHARACTER SET utf8 ;
+USE `receitaWeb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuario`
+-- Table `receitaWeb`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
-  `USUARIO_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `receitaWeb`.`usuario` (
+  `USUARIO_id` INT NOT NULL AUTO_INCREMENT,
   `USUARIO_NOME` VARCHAR(45) NOT NULL,
   `USUARIO_EMAIL` VARCHAR(45) NOT NULL,
   `USUARIO_SENHA` VARCHAR(45) NOT NULL,
@@ -30,20 +30,20 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`receita`
+-- Table `receitaWeb`.`receita`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`receita` (
+CREATE TABLE IF NOT EXISTS `receitaWeb`.`receita` (
   `RECEITA_ID` INT NOT NULL,
-  `RECEITA_NOME` VARCHAR(45) NOT NULL,
-  `RECEITA_DESCRICAO` VARCHAR(1000) NOT NULL,
-  `RECEITA_INGREDIENTES` VARCHAR(45) NOT NULL,
-  `RECEITA_PREPARO` VARCHAR(1000) NOT NULL,
+  `RECEITA_NOME` VARCHAR(45),
+  `RECEITA_DESCRICAO` VARCHAR(1000),
+  `RECEITA_INGREDIENTES` VARCHAR(45),
+  `RECEITA_PREPARO` VARCHAR(1000),
   `usuario_USUARIO_id` INT NOT NULL,
   PRIMARY KEY (`RECEITA_ID`),
-  INDEX `fk_receita_usuario_idx` (`usuario_USUARIO_id` ASC) VISIBLE,
+  INDEX `fk_receita_usuario_idx` (`usuario_USUARIO_id` ASC),
   CONSTRAINT `fk_receita_usuario`
     FOREIGN KEY (`usuario_USUARIO_id`)
-    REFERENCES `mydb`.`usuario` (`USUARIO_id`)
+    REFERENCES `receitaWeb`.`usuario` (`USUARIO_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
