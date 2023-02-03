@@ -1,6 +1,6 @@
 <!-- Javascript -->
 <script>
-  import { currentPage } from "../store";
+  import { currentPage, isLogged } from "../store";
   import Botao from "../components/Botao.svelte";
 
   let email = "";
@@ -16,7 +16,10 @@
     fetch(url, {
       method: "POST",
       body: form,
+      credentials: "include",
     });
+    $isLogged = true;
+    $currentPage = "dashboard";
   }
 </script>
 

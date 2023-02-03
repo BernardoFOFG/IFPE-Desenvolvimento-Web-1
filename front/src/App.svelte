@@ -7,13 +7,17 @@
   import QuemSomos from "./components/QuemSomos.svelte";
   import Cadastro from "./screens/Cadastro.svelte";
   import Login from "./screens/Login.svelte";
+  import Dashboard from "./screens/Dashboard.svelte";
+
+  console.log($currentPage);
+  console.log($isLogged);
 </script>
 
 <!-- HTML -->
 <main
-  class="bg-orange-500 w-screen h-screen flex items-center justify-center flex-col"
+  class="bg-orange-500 w-screen h-full flex items-center justify-center flex-col"
 >
-  {#if !isLogged == false}
+  {#if !$isLogged == true}
     <div
       class="bg-gray-600 w-[80%] h-[90%] flex items-center gap-20 justify-center mx-auto rounded-3xl"
     >
@@ -28,6 +32,10 @@
         {/if}
       </div>
       <QuemSomos />
+    </div>
+  {:else if $currentPage == "dashboard"}
+    <div class="flex flex-col h-screen bg-orange-500 rounded-lg">
+      <Dashboard />
     </div>
   {/if}
 </main>
