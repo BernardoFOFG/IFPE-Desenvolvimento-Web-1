@@ -1,8 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ["./src/**/*.svelte"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: [
+          "Nunito, sans-serif"
+        ]
+      },
+      backgroundImage: {
+        'header-background': "url('./public/blob.svg')"
+      }
+    },
   },
   plugins: [],
-}
+};
