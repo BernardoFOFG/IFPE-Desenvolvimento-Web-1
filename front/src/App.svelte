@@ -8,14 +8,11 @@
   import Cadastro from "./screens/Cadastro.svelte";
   import Login from "./screens/Login.svelte";
   import Dashboard from "./screens/Dashboard.svelte";
-
-  console.log($currentPage);
-  console.log($isLogged);
 </script>
 
 <!-- HTML -->
 <main
-  class="bg-orange-500 w-screen h-full flex items-center justify-center flex-col"
+  class="bg-orange-500 w-screen h-screen flex items-center justify-center flex-col"
 >
   {#if !$isLogged == true}
     <div

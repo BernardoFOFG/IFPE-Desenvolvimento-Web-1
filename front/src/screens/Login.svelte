@@ -6,18 +6,22 @@
   let email = "";
   let senha = "";
 
-  function logandoUsuario() {
+  async function logandoUsuario() {
     let form = new FormData();
     form.append("email", email);
     form.append("senha", senha);
 
     const url = "http://localhost:8000/login.php";
 
-    fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       body: form,
       credentials: "include",
     });
+    if (!response.ok) {
+      alert("Usuário ou senha incorreto");
+      return;
+    }
     $isLogged = true;
     $currentPage = "dashboard";
   }

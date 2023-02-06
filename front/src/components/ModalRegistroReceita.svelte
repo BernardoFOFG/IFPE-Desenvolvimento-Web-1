@@ -122,7 +122,7 @@
     </div>
     <button
       class="px-4 py-2 bg-orange-500 rounded-xl text-white font-semibold text-lg
-     transition-all hover:bg-orange-800">Sexo</button
+     transition-all hover:bg-orange-800">Nova receita</button
     >
   </form>
 </div>

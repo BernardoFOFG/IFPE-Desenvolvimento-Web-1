@@ -17,16 +17,30 @@
   </p>
   <div class="mt-4 flex flex-col gap-4">
     <h2>Siga-nos nas nossas plataformas</h2>
-    <ul class="flex justify-between">
+    <ul class="flex items-center justify-between">
       <!-- svelte-ignore a11y-invalid-attribute -->
       <!-- svelte-ignore a11y-missing-attribute -->
       <li><a href="#"><img src={Cartola} class="w-16" /></a></li>
       <!-- svelte-ignore a11y-invalid-attribute -->
       <!-- svelte-ignore a11y-missing-attribute -->
-      <li><a href="#"><img src={Cartola} class="w-16" /></a></li>
+      <li>
+        <a href="#"
+          ><img
+            src="https://icongr.am/material/instagram.svg?size=64&color=FFFFFF"
+            class="w-16"
+          /></a
+        >
+      </li>
       <!-- svelte-ignore a11y-invalid-attribute -->
       <!-- svelte-ignore a11y-missing-attribute -->
-      <li><a href="#"><img src={Cartola} class="w-16" /></a></li>
+      <li>
+        <a href="#"
+          ><img
+            src="https://icongr.am/material/whatsapp.svg?size=64&color=ffffff"
+            class="w-16"
+          /></a
+        >
+      </li>
     </ul>
   </div>
 </div>
