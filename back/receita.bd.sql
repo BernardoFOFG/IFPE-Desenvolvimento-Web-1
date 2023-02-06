@@ -2,21 +2,20 @@
 -- Fri Feb  3 00:14:21 2023
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
+SET @OLD_UNIQUE_CHECKS = @@UNIQUE_CHECKS,
+  UNIQUE_CHECKS = 0;
+SET @OLD_FOREIGN_KEY_CHECKS = @@FOREIGN_KEY_CHECKS,
+  FOREIGN_KEY_CHECKS = 0;
+SET @OLD_SQL_MODE = @@SQL_MODE,
+  SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 -- -----------------------------------------------------
 -- Schema receitaWeb
 -- -----------------------------------------------------
-
 -- -----------------------------------------------------
 -- Schema receitaWeb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `receitaWeb` DEFAULT CHARACTER SET utf8 ;
-USE `receitaWeb` ;
-
+CREATE SCHEMA IF NOT EXISTS `receitaWeb` DEFAULT CHARACTER SET utf8;
+USE `receitaWeb`;
 -- -----------------------------------------------------
 -- Table `receitaWeb`.`usuario`
 -- -----------------------------------------------------
@@ -25,30 +24,62 @@ CREATE TABLE IF NOT EXISTS `receitaWeb`.`usuario` (
   `USUARIO_NOME` VARCHAR(45) NOT NULL,
   `USUARIO_EMAIL` VARCHAR(45) NOT NULL,
   `USUARIO_SENHA` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`USUARIO_id`))
-ENGINE = InnoDB;
-
-
+  PRIMARY KEY (`USUARIO_id`)
+) ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `receitaWeb`.`receita`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `receitaWeb`.`receita` (
   `RECEITA_ID` INT NOT NULL,
-  `RECEITA_NOME` VARCHAR(45),
-  `RECEITA_DESCRICAO` VARCHAR(1000),
-  `RECEITA_INGREDIENTES` VARCHAR(45),
-  `RECEITA_PREPARO` VARCHAR(1000),
+  `RECEITA_NOME` VARCHAR(100),
+  `RECEITA_DESCRICAO` VARCHAR(9999),
+  `RECEITA_INGREDIENTES` VARCHAR(500),
+  `RECEITA_PREPARO` VARCHAR(9999),
   `usuario_USUARIO_id` INT NOT NULL,
   PRIMARY KEY (`RECEITA_ID`),
   INDEX `fk_receita_usuario_idx` (`usuario_USUARIO_id` ASC),
-  CONSTRAINT `fk_receita_usuario`
-    FOREIGN KEY (`usuario_USUARIO_id`)
-    REFERENCES `receitaWeb`.`usuario` (`USUARIO_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+  CONSTRAINT `fk_receita_usuario` FOREIGN KEY (`usuario_USUARIO_id`) REFERENCES `receitaWeb`.`usuario` (`USUARIO_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+SET SQL_MODE = @OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS = @OLD_UNIQUE_CHECKS;
+INSERT INTO `usuario` (
+    `USUARIO_id`,
+    `USUARIO_NOME`,
+    `USUARIO_EMAIL`,
+    `USUARIO_SENHA`
+  )
+VALUES (NULL, 'padrao', 'padrao@gmail.com', '123456');
+INSERT INTO `receita`(
+    `RECEITA_ID`,
+    `RECEITA_NOME`,
+    `RECEITA_DESCRICAO`,
+    `RECEITA_INGREDIENTES`,
+    `RECEITA_PREPARO`,
+    `usuario_USUARIO_id`
+  )
+VALUES (
+    1,
+    "Bolo de laranja",
+    "Bolo tradicional de laranja",
+    "4 ovos 2 xícaras de açúcar 1 xícara de óleo suco de 2 laranjas casca de 1 laranja 2 xícaras de farinha de trigo 1 colher de fermento",
+    "Bata no liquidificador os ovos, o açúcar, o óleo, o suco e a casca da laranja. Passe para uma tigela e acrescente a farinha de trigo e o fermento. Leve para assar em uma forma com furo central, untada e enfarinhada, por mais ou menos 30 minutos. Desenforme o bolo e molhe com suco de laranja.",
+    1
+  );
+INSERT INTO `receita`(
+    `RECEITA_ID`,
+    `RECEITA_NOME`,
+    `RECEITA_DESCRICAO`,
+    `RECEITA_INGREDIENTES`,
+    `RECEITA_PREPARO`,
+    `usuario_USUARIO_id`
+  )
+VALUES (
+    2,
+    "Cheesecake de Laranja",
+    "Um delicioso cheesecake de laranja para você se deliciar",
+    "200g de Biscoito Nesfit - Leite e Mel 160g - 
+100g de manteiga - 3 ovos - 1 e meia colher de essência de baunilha - 1 colher de raspas da casca de laranja - 1 Leite MOÇA 395g - 200g de ricota amassada - meio copo de NESTLÉ Requeijão Tradicional Cremoso 200g - 2 xícaras de suco de laranja - 1 colher de fécula de batata - 2 colheres de açúcar - 1 laranja em gomos",
+    "Em um recipiente, misture o Biscoito NESFIT com a manteiga. - Forre o fundo e as laterais de uma forma de aro removível. - Leve para assar em forno médio-alto (200°C), preaquecido, por cerca de 5 minutos. - Em um liquidificador, bata os ovos, a essência de baunilha e as raspas de laranja. - Junte o Leite MOÇA, a ricota e o Requeijão NESTLÉ e bata bem até formar uma preparação cremosa e homogênea. - Coloque sobre a massa pré-assada e leve ao forno médio-alto (200°C), preaquecido, coberto com papel-alumínio, por cerca de 40 minutos ou até que o recheio esteja firme. - Em uma panela, misture o suco de laranja, a fécula e o açúcar e leve para ferver até espessar. - Espere esfriar e sirva sobre a cheesecake decorando com os gomos de laranja.",
+    1
+  );
