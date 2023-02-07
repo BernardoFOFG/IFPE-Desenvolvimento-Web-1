@@ -20,7 +20,13 @@
     <ul class="flex items-center justify-between">
       <!-- svelte-ignore a11y-invalid-attribute -->
       <!-- svelte-ignore a11y-missing-attribute -->
-      <li><a href="#"><img src={Cartola} class="w-16" /></a></li>
+      <li>
+        <a
+          href="https://github.com/BernardoFOFG/IFPE-Desenvolvimento-Web-1"
+          target="_blank
+        "><img src={Cartola} class="w-16" /></a
+        >
+      </li>
       <!-- svelte-ignore a11y-invalid-attribute -->
       <!-- svelte-ignore a11y-missing-attribute -->
       <li>

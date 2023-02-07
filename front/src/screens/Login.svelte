@@ -20,10 +20,10 @@
     });
     if (!response.ok) {
       alert("Usuário ou senha incorreto");
-      return;
+    } else {
+      $isLogged = true;
+      $currentPage = "dashboard";
     }
-    $isLogged = true;
-    $currentPage = "dashboard";
   }
 </script>
 
@@ -35,7 +35,7 @@
   <h1 class="font-semibold text-2xl">Logue na plataforma</h1>
   <!-- svelte-ignore a11y-label-has-associated-control -->
   <label class="flex flex-col items-center">
-    Cadastre seu email
+    Insira seu email
     <input
       type="email"
       required
@@ -44,7 +44,7 @@
     />
   </label>
   <label class="flex flex-col items-center" for=""
-    >Cadastre sua senha<input
+    >Insira sua senha<input
       type="password"
       required
       bind:value={senha}

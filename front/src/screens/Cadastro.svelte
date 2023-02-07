@@ -35,6 +35,7 @@
           method: "POST",
           body: form,
         });
+      $currentPage = "login"
       }
     });
   }

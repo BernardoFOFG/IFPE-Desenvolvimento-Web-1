@@ -59,7 +59,7 @@
 <svelte:window on:keydown={handle_keydown} />
 
 <div
-  class="absolute left-1/2 top-1/2 max-w-4xl w-[100vw] m-h-[100vh - 4em] h-[600px] overflow-auto transform-cpu rounded-lg -translate-x-1/2 -translate-y-1/2 p-1 bg-white"
+  class="absolute left-1/2 top-1/2 max-w-4xl w-[100vw] m-h-[100vh - 4em] h-[600px] overflow-auto transform-cpu rounded-lg -translate-x-1/2 -translate-y-1/2 p-1 bg-white ring-2 ring-black"
   role="dialog"
   aria-modal="true"
   bind:this={modal}

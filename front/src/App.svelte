@@ -12,14 +12,14 @@
 
 <!-- HTML -->
 <main
-  class="bg-orange-500 w-screen h-screen flex items-center justify-center flex-col"
+  class="bg-orange-500 w-screen h-screen flex items-center justify-center flex-col ring-2 ring-black"
 >
   {#if !$isLogged == true}
     <div
-      class="bg-gray-600 w-[80%] h-[90%] flex items-center gap-20 justify-center mx-auto rounded-3xl"
+      class="bg-gray-600 w-[80%] h-[90%] flex items-center gap-20 justify-center mx-auto rounded-3xl ring-2 ring-black"
     >
       <div
-        class="flex flex-col items-center justify-center bg-orange-500 rounded-lg py-4 px-8 h-[75%]"
+        class="flex flex-col items-center justify-center bg-orange-500 rounded-lg py-4 px-8 h-[75%] ring-2 ring-black"
       >
         <Header />
         {#if $currentPage == "index"}

@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `receitaWeb`.`usuario` (
 -- Table `receitaWeb`.`receita`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `receitaWeb`.`receita` (
-  `RECEITA_ID` INT NOT NULL,
+  `RECEITA_ID` INT NOT NULL AUTO_INCREMENT,
   `RECEITA_NOME` VARCHAR(100),
   `RECEITA_DESCRICAO` VARCHAR(9999),
   `RECEITA_INGREDIENTES` VARCHAR(500),
